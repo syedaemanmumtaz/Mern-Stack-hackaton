@@ -1,21 +1,19 @@
-import React from 'react';
-import './index.css';
-import AddProduct from './components/AddProduct';
-import ProductList from './components/ProductList';
-import AdminDashboard from './pages/AdminDashboard';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import TaskBoard from './pages/TaskBoard';
+// import PrivateRoute from './components/PrivateRoute';
 
-const App = () => {
+function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <AdminDashboard/>
-      <AddProduct />
-      <ProductList />
-      <ToastContainer />
-    </div>
+    <Router>
+          <Routes>
+            <Route path="/" element={<TaskBoard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+    </Router>
   );
-}; 
+}
 
 export default App;
-
